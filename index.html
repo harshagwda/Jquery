@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+ <script type = "text/javascript"
+ src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+</script>
+</head>
+<body>
+<h1>Get Total</h1>
+  <form action="" id="theForm">
+      <label>
+        <input name="product" value="10" type="checkbox" class="addcheckbox" id="p1"/>
+        10$
+      </label>
+      <label>
+        <input name="product" value="20" type="checkbox" class="addcheckbox" id="p2" onclick="totalIt()"/>
+       20$
+      </label>
+      <label>
+        <input name="product" value="30" type="checkbox" class="addcheckbox" id="p3" onclick="totalIt()"/>
+       30$
+      </label>
+      <label>
+        <input name="product" value="40" type="checkbox" class="addcheckbox" id="p3" onclick="totalIt()"/>
+       40$
+      </label>
+      <label>
+        <input name="product" value="50" type="checkbox" class="addcheckbox" id="p3" onclick="totalIt()"/>
+       50$
+      </label>
+      <label>
+        <input name="product" value="60" type="checkbox" class="addcheckbox" id="p3" onclick="totalIt()"/>
+       60$
+      </label>
+      <label>
+        Total
+        <input value="$0" readonly="readonly" type="text" id="total"/>
+      </label>
+   
+    <input value="Submit" class="total" type="Submit" />
+    <input value="Reset" type="reset"/>
+    <input type="checkbox" onclick="toggle(this);" />Check all/Uncheckall<br />
+  </form>
+
+</body>
+</html>
+
+<script type="text/javascript">
+ $('.total').click(function(){
+   var final = 0;
+   $('.addcheckbox:checked').each(function(){
+    var values = $(this).val();
+    final = final + parseInt(values);
+  });
+   alert(final);
+ });
+
+ function toggle(source) {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i] != source)
+      checkboxes[i].checked = source.checked;
+  }
+}
+</script>
